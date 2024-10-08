@@ -37,11 +37,12 @@ public class PlayerService {
     }
 
     //get players by position
-    public List<Player> getPlayersByPosition(String position){
-        return playerRepository.findAll().stream()
-                .filter(player -> player.getPosition().toLowerCase().contains(position))
-                .collect(Collectors.toList());
-    }
+    public List<Player> getPlayersByPosition(String position) {
+    return playerRepository.findAll().stream()
+            .filter(player -> player.getPosition() != null && player.getPosition().toLowerCase().contains(position.toLowerCase()))
+            .collect(Collectors.toList());
+}
+
 
 
     //get players by nationality
